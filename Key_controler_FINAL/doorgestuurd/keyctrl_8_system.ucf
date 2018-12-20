@@ -1,0 +1,117 @@
+## THE XUP-V2PRO DEVELOPMENT SYSTEM
+## ================================
+
+# CLOCK DIVIDER
+# -------------
+
+# CLOCK CONTRAINTS
+# ----------------
+NET clk_100M LOC="AJ15" | IOSTANDARD = LVCMOS25 | PERIOD = 10000 ps;
+
+# DIP SWITCHES [IN]
+# -----------------
+# (left) D3 D2 D1 D0 (right)
+#D1
+NET "clk_sel<1>" LOC = "AD11" | IOSTANDARD = LVCMOS25;
+#D0
+NET "clk_sel<0>" LOC = "AC11" | IOSTANDARD = LVCMOS25;
+
+# LEDS [OUT]
+# ----------
+# (left) L3 L2 L1 L0 (right)
+#L0
+NET "clk_mux_b" LOC = "AC4" | IOSTANDARD = LVTTL | DRIVE = 12 | SLEW = SLOW;
+
+
+# XUP Expansion board UCF File
+# ============================
+
+# PUSH BUTTONS [IN] [PRESSED = '0']
+# ---------------------------------
+# Left                Right
+# S0  S1  S2  S3  S4  S5
+NET "enter_b" LOC = "M2" | IOSTANDARD = LVTTL | SLEW = SLOW;
+NET "up_b" LOC = "L4" | IOSTANDARD = LVTTL | SLEW = SLOW;
+NET "reset_b" LOC = "P9" | IOSTANDARD = LVTTL | SLEW = SLOW;
+
+# DIP SWITCHES (SW1) [IN] [ON = '0']
+# ----------------------------------
+# Left                 Right
+# D1 D2 D3 D4 D5 D6 D7 D8
+# N3 zou meest rechts moeten staan
+NET "pcode_b<0>" LOC = "N3" | IOSTANDARD = LVTTL | SLEW = SLOW;
+NET "pcode_b<1>" LOC = "R8" | IOSTANDARD = LVTTL | SLEW = SLOW;
+NET "pcode_b<2>" LOC = "P2" | IOSTANDARD = LVTTL | SLEW = SLOW;
+NET "pcode_b<3>" LOC = "P5" | IOSTANDARD = LVTTL | SLEW = SLOW;
+NET "test_b" LOC = "R6" | IOSTANDARD = LVTTL | SLEW = SLOW;
+
+# LEDBAR (LB10) [OUT] [LIGHT = '0']
+# ---------------------------------
+# Top                        Bottom
+# L9 L8 L7 L6 L5 L4 L3 L2 L1 L0
+NET "ledbar_out<9>" LOC = "R9" | IOSTANDARD = LVTTL | SLEW = SLOW;
+NET "ledbar_out<8>" LOC = "N1" | IOSTANDARD = LVTTL | SLEW = SLOW;
+NET "ledbar_out<7>" LOC = "M3" | IOSTANDARD = LVTTL | SLEW = SLOW;
+NET "ledbar_out<6>" LOC = "P8" | IOSTANDARD = LVTTL | SLEW = SLOW;
+NET "ledbar_out<5>" LOC = "P1" | IOSTANDARD = LVTTL | SLEW = SLOW;
+NET "ledbar_out<4>" LOC = "M4" | IOSTANDARD = LVTTL | SLEW = SLOW;
+NET "ledbar_out<3>" LOC = "N4" | IOSTANDARD = LVTTL | SLEW = SLOW;
+NET "ledbar_out<2>" LOC = "P7" | IOSTANDARD = LVTTL | SLEW = SLOW;
+NET "ledbar_out<1>" LOC = "P3" | IOSTANDARD = LVTTL | SLEW = SLOW;
+NET "ledbar_out<0>" LOC = "N2" | IOSTANDARD = LVTTL | SLEW = SLOW;
+
+# 7-SEGMENT DISPLAYs [OUT] [LIGHT = '0']
+# --------------------------------------
+# SEGMENT0 (DIS0)
+# ...............
+# a b c d e f g dp
+# 7 6 5 4 3 2 1 0
+NET "disc0<7>" LOC = "AA3" | IOSTANDARD = LVTTL | SLEW = SLOW;
+NET "disc0<6>" LOC = "W6"  | IOSTANDARD = LVTTL | SLEW = SLOW;
+NET "disc0<5>" LOC = "Y4"  | IOSTANDARD = LVTTL | SLEW = SLOW;
+NET "disc0<4>" LOC = "W7"  | IOSTANDARD = LVTTL | SLEW = SLOW;
+NET "disc0<3>" LOC = "W8"  | IOSTANDARD = LVTTL | SLEW = SLOW;
+NET "disc0<2>" LOC = "AA4" | IOSTANDARD = LVTTL | SLEW = SLOW;
+NET "disc0<1>" LOC = "AB3" | IOSTANDARD = LVTTL | SLEW = SLOW;
+NET "disc0<0>" LOC = "Y5"  | IOSTANDARD = LVTTL | SLEW = SLOW;
+
+# SEGMENT1 (DIS1)
+# ...............
+# a b c d e f g dp
+# 7 6 5 4 3 2 1 0
+NET "disc1<7>" LOC = "W3"  | IOSTANDARD = LVTTL | SLEW = SLOW;
+NET "disc1<6>" LOC = "AA2" | IOSTANDARD = LVTTL | SLEW = SLOW;
+NET "disc1<5>" LOC = "V7"  | IOSTANDARD = LVTTL | SLEW = SLOW;
+NET "disc1<4>" LOC = "AA1" | IOSTANDARD = LVTTL | SLEW = SLOW;
+NET "disc1<3>" LOC = "AB1" | IOSTANDARD = LVTTL | SLEW = SLOW;
+NET "disc1<2>" LOC = "W4"  | IOSTANDARD = LVTTL | SLEW = SLOW;
+NET "disc1<1>" LOC = "W5"  | IOSTANDARD = LVTTL | SLEW = SLOW;
+NET "disc1<0>" LOC = "V8"  | IOSTANDARD = LVTTL | SLEW = SLOW;
+
+# SEGMENT2 (DIS2)
+# ...............
+# a b c d e f g dp
+# 7 6 5 4 3 2 1 0
+NET "disc2<7>" LOC = "U7"  | IOSTANDARD = LVTTL | SLEW = SLOW;
+NET "disc2<6>" LOC = "V4"  | IOSTANDARD = LVTTL | SLEW = SLOW;
+NET "disc2<5>" LOC = "W1"  | IOSTANDARD = LVTTL | SLEW = SLOW;
+NET "disc2<4>" LOC = "V5"  | IOSTANDARD = LVTTL | SLEW = SLOW;
+NET "disc2<3>" LOC = "V6"  | IOSTANDARD = LVTTL | SLEW = SLOW;
+NET "disc2<2>" LOC = "U8"  | IOSTANDARD = LVTTL | SLEW = SLOW;
+NET "disc2<1>" LOC = "Y2"  | IOSTANDARD = LVTTL | SLEW = SLOW;
+NET "disc2<0>" LOC = "Y1"  | IOSTANDARD = LVTTL | SLEW = SLOW;
+
+# SEGMENT3 (DIS3)
+# ...............
+# a b c d e f g dp
+# 7 6 5 4 3 2 1 0
+NET "disc3<7>" LOC = "V2"  | IOSTANDARD = LVTTL | SLEW = SLOW;
+NET "disc3<6>" LOC = "T8"  | IOSTANDARD = LVTTL | SLEW = SLOW;
+NET "disc3<5>" LOC = "U4"  | IOSTANDARD = LVTTL | SLEW = SLOW;
+NET "disc3<4>" LOC = "T9"  | IOSTANDARD = LVTTL | SLEW = SLOW;
+NET "disc3<3>" LOC = "U9"  | IOSTANDARD = LVTTL | SLEW = SLOW;
+NET "disc3<2>" LOC = "W2"  | IOSTANDARD = LVTTL | SLEW = SLOW;
+NET "disc3<1>" LOC = "V3"  | IOSTANDARD = LVTTL | SLEW = SLOW;
+NET "disc3<0>" LOC = "U5"  | IOSTANDARD = LVTTL | SLEW = SLOW;
+
+
